@@ -30,13 +30,10 @@ public with sharing class FlowControlLoopsCollections {
     public static String helloWorld(Integer x, Integer y) {
         String myString = 'Hello World!';
         if(x!= null & y != null & x>y){
-            System.debug(myString) ;
             return myString;
-            
         } else {
             return null;
         }
-       
     }
 
     /**
@@ -49,13 +46,9 @@ public with sharing class FlowControlLoopsCollections {
      */
     public static Boolean votingEligibility(Integer age) {
         if(age >= 18){
-            System.System.debug('You are eligible to vote!');
-            return true;
-            
+            return true; 
         } else {
-            System.debug('You are not eligible to vote!');
-            return false;
-            
+            return false;    
         }
         
     }
@@ -72,11 +65,10 @@ public with sharing class FlowControlLoopsCollections {
         // Initialize largestNum as null
         Integer largestNum = null;
         if(num1!=null & num2!=null){
-            return largestNum = Math.max(num1,num2);
-            
+            largestNum = Math.max(num1,num2);
+            return largestNum;
         } else {
             return null;
-        
     }
 }
 
@@ -90,16 +82,12 @@ public with sharing class FlowControlLoopsCollections {
      */
     public static String checkNumber(Integer a) {
         if(a == 0){
-            System.debug('Zero');
             return 'Zero';
         } else if(a > 0){
-            System.debug('Positive');
             return 'Positive';
         } else if(a < 0) {
-            System.debug('Negative');
             return 'Negative';
         } else {
-            System.debug('null');
             return null;
         }
         
@@ -113,19 +101,16 @@ public with sharing class FlowControlLoopsCollections {
      * @return A string indicating whether the number is "Even" or "Odd", or null if the number is null.
      */
     public static String checkEvenOdd(Integer a) {
-        String myEvenOdd = '';
-        if(Math.Mod(a,2)==0){
-            System.debug('Even');
-            return myEvenOdd ='Even';
-        } else if(Math.Mod(a, 2)!= 0){
-            System.debug('Odd');
-            return myEvenOdd ='Odd';
+        if(a == null){
+            return null;
+        } else if(Math.mod(a,2) == 0){
+            return 'Even';
         } else {
-            System.debug('Null');
-            return myEvenOdd;
+            return 'Odd';
         }
         
     }
+
 
     /**
      * Checks if a string is empty, null, or contains text.
@@ -183,9 +168,7 @@ public with sharing class FlowControlLoopsCollections {
         Integer myInt= 0;
          for (Integer i = 0; i<=intLimit; i++){
             myInt +=i;
-            
          }
-         System.debug(myInt);
         return myInt;
     }
 
@@ -200,11 +183,11 @@ public with sharing class FlowControlLoopsCollections {
         // Use a for loop to append 'Hello World!;' to the result string three times
         
          for (Integer i = 1; i<=3 ;i++){
-            myString = 'Hello World!';
-            System.debug(myString);
+            myString += 'Hello World!';
+            if(i<=3){
+                myString += ';' +' ';  
+            }
          }
-        
-         System.debug(myString);
         return myString;
         
     }
@@ -222,14 +205,17 @@ public with sharing class FlowControlLoopsCollections {
         // Initialize the result String
         String  myStr = '';
         // Use a for loop to append the inputString to the result string repeatCount times
-        for (Integer i=0; i<repeatCount; i++) {
-        myStr = inputString +';';
-        System.debug(myStr);
-            // If it is not the last iteration, add a semicolon to separate the strings
-        }        
+        for (Integer i= 0; i< repeatCount; i++) {
+        myStr += inputString;
+        if (i < repeatCount -1) {
+            myStr += ';' +' ';
+        }
+            // If it is not the last iteration, add a semicolon to separate the strings  
         // Return the final result string
-        return myStr;
+      }  
+      return myStr;
     }
+
 
     /**
      * Creates a List of integers and adds the integers 1, 2, and 3 to it.
@@ -255,11 +241,9 @@ public with sharing class FlowControlLoopsCollections {
     public static List<Integer> createAndRemoveFromList() {
         // Create a new list of integers and add numbers 1 to 5
         List<Integer> numberList = new List<Integer>{1, 2, 3, 4, 5}; //DO NOT CHANGE
-
         // Remove the 3rd element (number 3) from the list
         numberList.Remove(2);
         // Return the updated list
-        System.debug(numberList);
         return numberList;
     }
 
@@ -289,7 +273,6 @@ public with sharing class FlowControlLoopsCollections {
     public static Set<String> createStringSet(List<String> inputList) {
         // Create a new Set of strings
         Set<String> stringSet = new Set<String>(inputList);
-
         //add strings to the set
         return stringSet;
     }
@@ -305,13 +288,11 @@ public with sharing class FlowControlLoopsCollections {
         // Loop through the list of integers
             // if the number is negative skip this iteration
         for(Integer num: numbers){
-            
             if(num > 0){
                 mySumInt += num;
                 continue; 
             }
         }
-
         return mySumInt;
     }
 
@@ -328,17 +309,14 @@ public with sharing class FlowControlLoopsCollections {
         // Loop through the list of words
             // If the current word is the word to find, exit the loop
             for(String myWord : words){
-                
                 if(myWord == wordToFind){
                     indexList = words.indexOf(myWord);
                     break;                  
                 } else {
                     indexList = -1;
-                }
-                
+                }   
             }
         return indexList;
-        
     }
 
     /**
@@ -443,7 +421,6 @@ public with sharing class FlowControlLoopsCollections {
         }
             // Check if the salary of the employee is more than 55000
                 // Add the employee to the list of high paid employees
-
         // Return the list of high paid employees
         return HighpaidEmp; // Replace null with the variable you used to store the result
     }
