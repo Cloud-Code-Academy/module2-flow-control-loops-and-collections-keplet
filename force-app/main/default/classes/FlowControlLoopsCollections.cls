@@ -29,10 +29,14 @@ public with sharing class FlowControlLoopsCollections {
      */
     public static String helloWorld(Integer x, Integer y) {
         String myString = 'Hello World!';
-        if(x!= null & y != null & x>y){
-            return myString;
-        } else {
+        if(x == null || y == null || x <= y){
             return null;
+        }
+        
+        /*if(x!= null && y != null & x>y){
+            return myString;
+        }*/ else {
+            return myString;
         }
     }
 
@@ -45,7 +49,7 @@ public with sharing class FlowControlLoopsCollections {
      * @return true if the person is eligible to vote, false otherwise.
      */
     public static Boolean votingEligibility(Integer age) {
-        if(age >= 18){
+        if(age >= 18 && age <=190){
             return true; 
         } else {
             return false;    
@@ -64,11 +68,12 @@ public with sharing class FlowControlLoopsCollections {
     public static Integer findMax(Integer num1, Integer num2) {
         // Initialize largestNum as null
         Integer largestNum = null;
-        if(num1!=null & num2!=null){
-            largestNum = Math.max(num1,num2);
-            return largestNum;
-        } else {
+        if(num1 ==null || num2 ==null){
             return null;
+           
+        } else {
+            largestNum = Math.max(num1,num2);
+             return largestNum;
     }
 }
 
@@ -81,14 +86,15 @@ public with sharing class FlowControlLoopsCollections {
      * @return A string indicating whether the number is "Positive", "Negative", or "Zero", or null if the number is null.
      */
     public static String checkNumber(Integer a) {
-        if(a == 0){
+        if(a ==null){
+            return null;
+        }
+         else if(a == 0){
             return 'Zero';
         } else if(a > 0){
             return 'Positive';
-        } else if(a < 0) {
+        }  else {
             return 'Negative';
-        } else {
-            return null;
         }
         
     }
@@ -290,7 +296,7 @@ public with sharing class FlowControlLoopsCollections {
         for(Integer num: numbers){
             if(num > 0){
                 mySumInt += num;
-                continue; 
+               // continue; 
             }
         }
         return mySumInt;
